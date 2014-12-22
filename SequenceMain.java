@@ -6,7 +6,6 @@ package Sequence;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import static java.lang.System.out;
 
 /**
@@ -27,8 +26,7 @@ public class SequenceMain {
 	/**
 	 * @param args
 	 */
-	 @SuppressWarnings("static-access")
-	public static void main(String[] args) {
+	 public static void main(String[] args) {
 
 		 // final String printValues =
 		 // "Draw is %d, i is %d, player%dHoldings[%d] is %d\n";
@@ -37,40 +35,44 @@ public class SequenceMain {
 
 		 for (int i = 0; i < totalCard; i++) {
 			 out.println("--------------------------------------------------");
-			 draw = DrawCard.DrawCard(totalCard, allPlayerHoldings);//
-
-			 while(pause){
-				 try {Thread.sleep(500);} catch (InterruptedException e) {break;};
-			 }//end while pause loop                                                
-			 pause=true;
-
-			 out.println("allPlayerHoldings" + allPlayerHoldings);
-			 player1Holdings = (player1.Player_Holding(draw, player1Holdings));
-			 out.println("player1Holdings" + player1Holdings);
-			 winner = (CheckWinning.checkForWinner(player1Holdings));
+			 player1Holdings=SequenceMain.PlayerTurn("Player1",player1Holdings);
+//			 draw = DrawCard.DrawCard(totalCard, allPlayerHoldings);//
+//
+//			 while(pause){
+//				 try {Thread.sleep(500);} catch (InterruptedException e) {break;};
+//			 }//end while pause loop                                                
+//			 pause=true;
+//
+//			 out.println("allPlayerHoldings" + allPlayerHoldings);
+//			 player1Holdings = (player1.Player_Holding(draw, player1Holdings));
+//			 out.println("player1Holdings" + player1Holdings);
+//			 winner = (CheckWinning.checkForWinner(player1Holdings));
 			 if (winner == true) {
-				 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				 out.println("!!!!!!!!!!!!!!!!!!!Player1 wins!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//				 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//				 out.println("!!!!!!!!!!!!!!!!!!!Player1 wins!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//				 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 				 break;
 			 }
 			 out.println("*********************");
-			 draw = DrawCard.DrawCard(totalCard, allPlayerHoldings);
-
-			 while(pause){
-				 try {Thread.sleep(500);} catch (InterruptedException e) {break;};
-			 }//end while pause loop   
-			 pause=true;
-
-			 out.println("allPlayerHoldings" + allPlayerHoldings);
-			 player2Holdings = (player2.Player_Holding(draw, player2Holdings));
-			 out.println("player2Holdings" + player2Holdings);
-			 out.println("--------------------------------------------------");
-			 winner = (CheckWinning.checkForWinner(player2Holdings));
+//			 draw = DrawCard.DrawCard(totalCard, allPlayerHoldings);
+//
+//			 while(pause){
+//				 try {Thread.sleep(500);} catch (InterruptedException e) {break;};
+//			 }//end while pause loop   
+//			 pause=true;
+//
+//			 out.println("allPlayerHoldings" + allPlayerHoldings);
+//			 player2Holdings = (player2.Player_Holding(draw, player2Holdings));
+//			 out.println("player2Holdings" + player2Holdings);
+//			 out.println("--------------------------------------------------");
+//			 winner = (CheckWinning.checkForWinner(player2Holdings));
+			 
+			 player2Holdings=SequenceMain.PlayerTurn("Player2",player2Holdings);
+			 out.println("--------------------------------------------------");			 
 			 if (winner == true) {
-				 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				 out.println("!!!!!!!!!!!!!!!!!!!Player2 wins!!!!!!!!!!!!!!!!!!!!!!!!!!");
-				 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//				 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//				 out.println("!!!!!!!!!!!!!!!!!!!Player2 wins!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//				 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 				 break;
 			 }
 
@@ -82,4 +84,31 @@ public class SequenceMain {
 			 }//end if for no one wins
 		 }// end for loop
 	 }// end main method
+
+	 
+public static List<Integer> PlayerTurn (String playerName, List<Integer> playerHoldings){
+	
+	 draw = DrawCard.DrawCard(totalCard, allPlayerHoldings);
+
+	 while(pause){
+		 try {Thread.sleep(500);} catch (InterruptedException e) {break;};
+	 }//end while pause loop   
+	 pause=true;
+
+	 out.println("allPlayerHoldings" + allPlayerHoldings);
+	 playerHoldings = (PlayerHolding.Player_Holding(draw, playerHoldings));
+	 out.println("playerHoldings" + playerHoldings);
+	 //out.println("--------------------------------------------------");
+	 winner = (CheckWinning.checkForWinner(playerHoldings));
+	 if (winner == true) {
+		 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		 out.println("!!!!!!!!!!!!!!!!!!! "+playerName+" wins!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		 
+	 }
+	return playerHoldings;
+	
+}//end PlayerHolding 
+	 
+	 
 }// end class

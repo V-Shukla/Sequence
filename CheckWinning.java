@@ -1,9 +1,5 @@
 package Sequence;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-
-import static java.lang.System.out;
 
 /**
  *
@@ -54,7 +50,4 @@ public class CheckWinning {
 		}//if to check if there is enough sequence available
 		return didPlayerWin;
 	}//end checkForWinner
-
-
-
 }//end class

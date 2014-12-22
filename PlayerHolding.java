@@ -1,8 +1,7 @@
 package Sequence;
 import static java.lang.System.out;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 /**
  * @author vihar
  *

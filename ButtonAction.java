@@ -4,8 +4,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+
 
 public class ButtonAction {
 	public static void createAndShowGUI()  {

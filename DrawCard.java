@@ -1,7 +1,9 @@
 package Sequence;
 import java.util.List;
 import java.util.Random;
+
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +15,8 @@ public class DrawCard {
 	//            static List<Integer> allPlayerHoldings = new ArrayList<Integer>();
 	protected static List<Integer> ph;
 	protected static int n;
-
+	static boolean drawPause = true;
+	
 	public static void createAndShowGUI()  {
 
 		final JFrame frame1 = new JFrame("Player Turn");
@@ -31,9 +34,9 @@ public class DrawCard {
 			{
 				//Execute when button is pressed
 				System.out.println("Player decided to draw a card !");
-
 				buttonDrawCard(n, ph);
 				SequenceMain.pause=false;
+				drawPause = false;
 				frame1.dispose();
 			}
 		});     
@@ -49,6 +52,7 @@ public class DrawCard {
 				System.out.println("This function is not yet available !");  
 				draw=1000;
 				SequenceMain.pause=false;
+				drawPause = false;
 				frame1.dispose();
 			}
 		});     
@@ -63,11 +67,15 @@ public class DrawCard {
 	public static int DrawCard(int Number, List<Integer> playerHoldings) {
 		n = Number;
 		ph= playerHoldings;
+
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowGUI();
 			}
 		});
+		while(drawPause){
+			 try {Thread.sleep(500);} catch (InterruptedException e) {break;};
+		}//end while loop
 
 
 		//		int tempHolder;
@@ -108,6 +116,7 @@ public class DrawCard {
 		//	}
 		//	playerHoldings.add(draw);
 		//	out.println("allPlayerHoldings = " + allPlayerHoldings);
+		System.out.println("draw before return= "+draw);
 		return draw;
 	}//end draw card
 
@@ -149,6 +158,7 @@ public class DrawCard {
 		//                            else {
 		//                                            draw = randomNumber.nextInt(Number);
 		//                            }
+		System.out.println("playerHoldings = "+playerHoldings+"draw = "+draw);
 		playerHoldings.add(draw);
 	}
 }//end class
