@@ -102,7 +102,7 @@ public static List<Integer> PlayerTurn (String playerName, List<Integer> playerH
 	 winner = (CheckWinning.checkForWinner(playerHoldings));
 	 if (winner == true) {
 		 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-		 out.println("!!!!!!!!!!!!!!!!!!! "+playerName+" wins!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		 out.println("!!!!!!!!!!!!!!!!!!! "+playerName+" wins!!!!!!!!!!!!!!!!!!!!!!!!!");
 		 out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		 
 	 }
