@@ -1,5 +1,6 @@
 package Sequence;
 import static java.lang.System.out;
+
 import java.util.List;
 
 /**
@@ -7,19 +8,20 @@ import java.util.List;
  *
  */
 public class PlayerHolding {
-	//            public static int totalCard = 52;
-	//            public static int draw;
-	//public static int tempHolding;
-
 	public static List<Integer> Player_Holding (int draw, List<Integer> playerHoldings){
-		//final String printValues = "Draw is %d, i is %d, player%dHoldings[%d] is %d\n";
-		int holdingNumber;
-
-		//draw = Draw.DrawCard(totalCard, playerHoldings);
+		// add drawn card to the player's hand
 		playerHoldings.add(draw);
-		holdingNumber = playerHoldings.size();
-		out.println("Player drew "+draw+" in draw number "+holdingNumber);
+		
+		//sort the player Holdings 
+		playerHoldings=sortPlayerHolding(playerHoldings);
+		//System.out.println("Player Holding Sorted "+playerHoldings);
+		return playerHoldings;
+	}//end method Player_Holding
 
+	public static List<Integer> sortPlayerHolding (List<Integer> playerHoldings){
+		
+		int holdingNumber;
+		holdingNumber = playerHoldings.size();
 		for (int i=0; i<holdingNumber; i++){
 			int tempHolding;
 			for (int j=0; j<holdingNumber; j++){
@@ -30,8 +32,6 @@ public class PlayerHolding {
 					tempHolding = playerHoldings.get(j);
 					playerHoldings.set(j,playerHoldings.get(i));
 					playerHoldings.set(i,tempHolding);
-					//i=0;
-					//i++; //if current draw is more then current value move on
 				}                                                                             
 				else {
 					//error msg print
@@ -39,10 +39,10 @@ public class PlayerHolding {
 			}//end j loop
 
 		}//end i for loop
-
-		//out.printf(printValues,draw,i,1,i,playerHoldings.get(i));
-
+		
+		
 		return playerHoldings;
-	}//end method
-
+		
+	}
+	
 }//end class
