@@ -4,6 +4,8 @@ import java.util.Random;
 
 import javax.swing.*;
 
+import Sequence.SequenceMain;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
