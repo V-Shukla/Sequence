@@ -12,8 +12,19 @@ Defect 2 : if no one wins needs a graceful end to program
 # Completed - Feature 1 : add window to middle -12/22/2014
 Feature 2 : add playerHoldings and refresh window for updates
 Feature 3 : Update the CheckWinning to defect winner for multiple sequence
+	   3a : Check for valid sequences for all cards in hand
+	   3b : Check for 3/4 cards of the same number
+	   3c : Manage multiple decks
 # Completed - Feature 4 : Add the current player holding cards in the frame -12/22/2014
 # Completed - Feature 5 : Add buttons and messages vertically in the window -12/22/2014
+Feature 6 : Add multiple players - up to 10
+	   6a : Need to handle multiple Deck
+Feature 7 : Test the application - create JUnits
+Feature 8 : Message for winner in a frame, message for others
+Feature 9 : Provide initial cards
+Feature10 : Feature to pick last card from the set for the last player
+Feature11 : Integrate with Server Client  
+Feature12 : Convert Cards to String and Integer for user Experience
 
-
+		
 
