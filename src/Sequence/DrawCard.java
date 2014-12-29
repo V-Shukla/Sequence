@@ -17,12 +17,12 @@ public class DrawCard {
 	private static int holdingNumber;
 	static int draw;
 	protected static List<Integer> aph,ph;
-	protected static int n;
+	protected static int totalCardstoDrawFrom;
 	static boolean drawPause = true;
 	static String pn;
 
 	public static int DrawCard(int Number, List<Integer> allPlayerHoldings, List<Integer> playerHoldings, String playerName) {
-		n = Number;
+		totalCardstoDrawFrom = Number;
 		aph= allPlayerHoldings;
 		ph=playerHoldings;
 		pn=playerName;
@@ -34,7 +34,7 @@ public class DrawCard {
 				createAndShowGUI();
 			}
 		});
-		
+
 		//wait for response from player's button
 		while(drawPause){
 			try {Thread.sleep(500);} catch (InterruptedException e) {break;};
@@ -43,16 +43,16 @@ public class DrawCard {
 		System.out.println("Card drawn was "+draw+" !!!");
 		return draw;
 	}//end draw card
-	
+
 	public static void createAndShowGUI()  {
 
 		final JFrame frame1 = new JFrame(pn + " Turn");
 		frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		frame1.setLayout(new BorderLayout() ); 
 		JPanel panel = new JPanel();
 		frame1.add(panel);
-		
+
 		JButton drawButton = new JButton(" Draw new card ");
 		panel.add(drawButton);
 		//Add action listener to drawButton
@@ -62,8 +62,7 @@ public class DrawCard {
 			{
 				//Execute when button is pressed
 				System.out.println(pn + " decided to draw a card !");
-				buttonDrawCard(n, aph);
-				SequenceMain.pause=false;
+				buttonDrawCard(totalCardstoDrawFrom, aph);
 				drawPause = false;
 				frame1.dispose();
 			}
@@ -79,17 +78,16 @@ public class DrawCard {
 				//Execute when button is pressed
 				System.out.println("Sorry "+pn + "This function is not yet available !");  
 				draw=1000;
-				SequenceMain.pause=false;
 				drawPause = false;
 				frame1.dispose();
 			}
 		});     
-		
+
 		JPanel panel2 = new JPanel();
 		frame1.add(panel2, BorderLayout.EAST);
 		JLabel myText = new JLabel("Your current holdings are "+ph+".",SwingConstants.CENTER);
 		panel2.add(myText);
-		
+
 		JPanel panel3 = new JPanel();
 		frame1.add(panel3, BorderLayout.WEST);
 		JLabel myText2 = new JLabel("What would you like to do?",SwingConstants.CENTER);
@@ -98,7 +96,6 @@ public class DrawCard {
 		frame1.getContentPane().add(panel2,SwingConstants.LEFT);
 		frame1.getContentPane().add(panel3,SwingConstants.LEFT);
 		frame1.getContentPane().add(panel);
-		//frame1.getContentPane().add(pickFromStackButton);
 		frame1.setSize(500, 200);
 		frame1.setLocationRelativeTo(null);  
 		frame1.setLayout(new GridLayout(3,1));
@@ -106,14 +103,14 @@ public class DrawCard {
 		frame1.setVisible(true);
 	}//end createAndShowGUI
 
-	//after click of button draw a card and add it to the player's holding
-	public static void buttonDrawCard(int Number, List<Integer> playerHoldings) {
+	//after click of button draw a card and add it to the all player's holding
+	public static void buttonDrawCard(int totaltoDrawFrom, List<Integer> playerHoldings) {
 		int tempHolder;
 		Random randomNumber = new Random();
 		boolean numberExists = false;
 
 		label: do {
-			draw = randomNumber.nextInt(Number);
+			draw = randomNumber.nextInt(totaltoDrawFrom)+1;
 			holdingNumber = playerHoldings.size();
 			for (int i = 0; i < holdingNumber; i++) {
 				tempHolder = playerHoldings.get(i);

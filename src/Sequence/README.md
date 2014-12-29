@@ -2,10 +2,17 @@ Sequence
 ========
 
 Player with sequence of four consecutive numbers wins. This is coded in Java. Eventually it will become a card game. 
+http://rummy.com/indianrummy.html
 
 #**************** Defects ***************************************
 # Resolved - Defect 1 : cards are persisting for both players in the first draw and chains to other -12/22/2014
-Defect 2 : if no one wins needs a graceful end to program
+# Resolved - Defect 2 : if no one wins needs a graceful end to program -12/27/2014
+	# Resolved - 2a: fix draw to start from 1 and end including 52 -12/27/2014
+	# Resolved - 2b: calculate iteration ends through end of cards to draw -12/27/2014
+	# Resolved - 2c: Extra fall back after certain draws based on the deck -12/27/2014
+					if ((cardsLeft4Drawing==0))
+					if (winner == false)
+
 ?????? Code for drawing on client side	?????? 
 
 #**************** Improvement ******************************
@@ -22,9 +29,10 @@ Feature 6 : Add multiple players - up to 10
 Feature 7 : Test the application - create JUnits
 Feature 8 : Message for winner in a frame, message for others
 Feature 9 : Provide initial cards
-Feature10 : Feature to pick last card from the set for the last player
+Feature10 : Feature to pick last card from the discard set for the last player
 Feature11 : Integrate with Server Client  
 Feature12 : Convert Cards to String and Integer for user Experience
-
+Feature13 : Accept player names from the windows
+Feature14 : Make the code independent of number of players
 		
 

@@ -40,9 +40,7 @@ public class PlayerHolding {
 
 		}//end i for loop
 		
-		
 		return playerHoldings;
-		
 	}
 	
 }//end class
