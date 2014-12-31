@@ -28,11 +28,14 @@ Feature 6 : Add multiple players - up to 10
 	   6a : Need to handle multiple Deck
 Feature 7 : Test the application - create JUnits
 Feature 8 : Message for winner in a frame, message for others
-Feature 9 : Provide initial cards
-Feature10 : Feature to pick last card from the discard set for the last player
+# Completed - Feature 9 : Provide initial cards - 12/30/2014
+# In Progress - Feature10 : Feature to pick last card from the discard pile for the last player
 Feature11 : Integrate with Server Client  
 Feature12 : Convert Cards to String and Integer for user Experience
 Feature13 : Accept player names from the windows
 Feature14 : Make the code independent of number of players
-		
+Feature15 : Manage Discarding a card
+Feature16 : Let player choose which card to discard
+Feature17 : check for winner after first distribution
+Feature18 : Accommodate Use of Jokers		
 

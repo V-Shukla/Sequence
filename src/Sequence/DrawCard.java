@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 public class DrawCard {
 
 	private static int holdingNumber;
-	static int draw;
+	static int drawCurrrent,topOfDiscardPile=0;
 	protected static List<Integer> aph,ph;
 	protected static int totalCardstoDrawFrom;
 	static boolean drawPause = true;
@@ -26,7 +26,7 @@ public class DrawCard {
 		aph= allPlayerHoldings;
 		ph=playerHoldings;
 		pn=playerName;
-
+	
 		//create window for player to choose either to pick or draw
 		//Buttons in GUI will carry out appropriate actions
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
@@ -40,8 +40,8 @@ public class DrawCard {
 			try {Thread.sleep(500);} catch (InterruptedException e) {break;};
 		}//end while loop
 		drawPause=true;
-		System.out.println("Card drawn was "+draw+" !!!");
-		return draw;
+		System.out.println("Card drawn was "+drawCurrrent+" !!!");
+		return drawCurrrent;
 	}//end draw card
 
 	public static void createAndShowGUI()  {
@@ -76,8 +76,9 @@ public class DrawCard {
 			public void actionPerformed(ActionEvent e)
 			{
 				//Execute when button is pressed
-				System.out.println("Sorry "+pn + "This function is not yet available !");  
-				draw=1000;
+				System.out.println(" "+pn + "This function is not yet available !");  
+				drawCurrrent=topOfDiscardPile;
+				System.out.println(" "+pn + "You chose to take this Card"+drawCurrrent+" !");  
 				drawPause = false;
 				frame1.dispose();
 			}
@@ -104,17 +105,25 @@ public class DrawCard {
 	}//end createAndShowGUI
 
 	//after click of button draw a card and add it to the all player's holding
-	public static void buttonDrawCard(int totaltoDrawFrom, List<Integer> playerHoldings) {
+	public static int buttonDrawCard(int totaltoDrawFrom, List<Integer> playerHoldings) {
 		int tempHolder;
 		Random randomNumber = new Random();
 		boolean numberExists = false;
-
+		
+		if (playerHoldings.size()>1){
+		topOfDiscardPile=playerHoldings.get(playerHoldings.size()-1);
+		}else{
+			topOfDiscardPile=1000;
+		}
+		
+		System.out.println("topOfDiscardPile "+topOfDiscardPile);
+		
 		label: do {
-			draw = randomNumber.nextInt(totaltoDrawFrom)+1;
+			drawCurrrent = randomNumber.nextInt(totaltoDrawFrom)+1;
 			holdingNumber = playerHoldings.size();
 			for (int i = 0; i < holdingNumber; i++) {
 				tempHolder = playerHoldings.get(i);
-				if ((draw == tempHolder) || (draw == 0)) {
+				if ((drawCurrrent == tempHolder) || (drawCurrrent == 0)) {
 					numberExists = true;
 					break;
 				}// end if for compare
@@ -129,8 +138,10 @@ public class DrawCard {
 		} while (true); //end of do loop
 
 		//System.out.println("playerHoldings = "+playerHoldings+"draw = "+draw);
-		playerHoldings.add(draw);
-		playerHoldings=PlayerHolding.sortPlayerHolding(playerHoldings);
+		
+		playerHoldings.add(drawCurrrent);
+		//playerHoldings=PlayerHolding.sortPlayerHolding(playerHoldings);
+		return drawCurrrent;
 	}//end buttonDrawCard
 
 }//end class
