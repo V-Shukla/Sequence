@@ -1,5 +1,6 @@
 Sequence
 ========
+note: use boolean to avoid creation of buttons every time. Activate buttons when appropriate. 
 
 Player with sequence of four consecutive numbers wins. This is coded in Java. Eventually it will become a card game. 
 http://rummy.com/indianrummy.html
@@ -29,13 +30,13 @@ Feature 6 : Add multiple players - up to 10
 Feature 7 : Test the application - create JUnits
 Feature 8 : Message for winner in a frame, message for others
 # Completed - Feature 9 : Provide initial cards - 12/30/2014
-# In Progress - Feature10 : Feature to pick last card from the discard pile for the last player
+# In Progress - Feature10 : Feature to pick last card from the discard pile 
 Feature11 : Integrate with Server Client  
 Feature12 : Convert Cards to String and Integer for user Experience
 Feature13 : Accept player names from the windows
 Feature14 : Make the code independent of number of players
 Feature15 : Manage Discarding a card
-Feature16 : Let player choose which card to discard
+# In Progress - Feature16 : Let player choose which card to discard
 Feature17 : check for winner after first distribution
 Feature18 : Accommodate Use of Jokers		
 

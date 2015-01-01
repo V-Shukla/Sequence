@@ -20,8 +20,8 @@ public class SequenceMain {
 	public static List<Integer> allPlayerHoldings = new ArrayList<Integer>();
 
 	public static void main(String[] args) {
-		String player1 = "Dezi";
-		String player2 = "Vihar";
+		String player1 = "Player 1";
+		String player2 = "Player 2";
 		int finalIteration = totalCard/numberOfPlayers;
 		//use for setting up initial cards
 		for (int i = 1; i < 14; i++) {

@@ -34,6 +34,7 @@ public class PlayerHolding {
 					playerHoldings.set(i,tempHolding);
 				}                                                                             
 				else {
+					
 					//error msg print
 				}
 			}//end j loop

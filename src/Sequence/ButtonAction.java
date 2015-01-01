@@ -29,6 +29,7 @@ public class ButtonAction {
 		frame.setLayout(new GridLayout(2,1));
 		frame.pack();
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}//end mail
 }//end class
