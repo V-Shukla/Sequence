@@ -7,9 +7,11 @@ import javax.swing.*;
 import Sequence.SequenceMain;
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 //this class will hold draw method which randomly draws a number from 1-52
 public class DrawCard {
@@ -137,11 +139,11 @@ public class DrawCard {
 		drawnCardButton.setEnabled(false);
 		
 		//for test
-		for(int i=10;i>0;i--){
-			System.out.println(i+" seconds left!");
-			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
-		}
-		drawnCardButton.setEnabled(true);
+//		for(int i=10;i>0;i--){
+//			System.out.println(i+" seconds left!");
+//			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
+//		}
+//		drawnCardButton.setEnabled(true);
 		
 		
 		panel6.add(drawnCardButton);
@@ -208,8 +210,21 @@ public class DrawCard {
 				myText.setText("-------   Please throw a card!!  -------");
 				myText.paintImmediately(myText.getVisibleRect());
 
-				enableAllButtons();
-				
+//				enableAllButtons();
+				bIndex=0;
+				for (int cardButtons : ph ){
+					holdingCardsButton[bIndex].setEnabled(true);
+					//holdingCardsButton[bIndex].repaint();
+					holdingCardsButton[bIndex].paintImmediately(holdingCardsButton[bIndex].getVisibleRect());
+					bIndex++;
+				}//end for loop
+				topOfDiscardPileButton.setEnabled(true);
+				//topOfDiscardPileButton.updateUI();
+
+				Graphics g = drawString("Hello",100,100);
+				//g.drawString("Hello",100,100);
+				frame1.paintAll(g);
+
 				System.out.println("Entering throwPause!");
 				
 //				for(int i=10;i>0;i--){
@@ -228,8 +243,6 @@ public class DrawCard {
 				
 				// remove it from player holding
 
-				
-
 				myText.setText("You threw this card ");
 				myText.paintImmediately(myText.getVisibleRect());
 
@@ -241,8 +254,23 @@ public class DrawCard {
 					System.out.println(i+" seconds left!");
 					try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
 				}
-
+				
 				frame1.dispose();
+			}
+
+			private Graphics drawString(String string, int i, int j) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			private Graphics create(int i, int j, int k, int l) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			private Object abc(String string, int i, int j) {
+				// TODO Auto-generated method stub
+				return null;
 			}
 		});     
 
@@ -270,8 +298,11 @@ public class DrawCard {
 		disableAllButtons ();
 
 	}//end createAndShowGUI
-
+	
+	
+	//--------------------------------------------------------------------------------------------------------------
 	//this method disables all card buttons for the cards
+	//--------------------------------------------------------------------------------------------------------------
 
 	public static void disableAllButtons (){
 
@@ -293,10 +324,12 @@ public class DrawCard {
 		bIndex=0;
 		for (int cardButtons : ph ){
 			holdingCardsButton[bIndex].setEnabled(true);
+			holdingCardsButton[bIndex].repaint();
 			holdingCardsButton[bIndex].paintImmediately(holdingCardsButton[bIndex].getVisibleRect());
 			bIndex++;
 		}//end for loop
 		topOfDiscardPileButton.setEnabled(true);
+		topOfDiscardPileButton.updateUI();
 
 	}//enable buttons
 

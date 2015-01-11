@@ -1,21 +1,26 @@
 package Sequence;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 import javax.swing.*;
 
 
 public class DisplayCardsasButtonTest {
 	static JButton[] holdingCardsButton=new JButton[13];
+	static JButton testButton=new JButton();
 	static int i=0;
 	static int[] holdingCardsValue = {41,12,33,45,589,69,7433,348,3459,15670,567811,162,173};
 	static int[] holdingButtonValue;
 	static boolean toggle;
 	
 	public static void main(String[] args) {
+
 		
 		JLabel myText = new JLabel("-------   Your current holdings -------",SwingConstants.CENTER);
 		
@@ -36,6 +41,7 @@ public class DisplayCardsasButtonTest {
 			System.out.println(" Starting Creation of button "+cardVAlue); 
 			holdingCardsButton[i]=new JButton(String.valueOf(cardVAlue));
 			holdingCardsButton[i].setName(String.valueOf(cardVAlue)); 
+			holdingCardsButton[i].setEnabled(false);
 			//holdingButtonValue[cardVAlue] = holdingCardsValue[cardVAlue];
 			System.out.println(" Completed Creation of button "+cardVAlue); 
 			//Add action listener to drawButton
@@ -45,7 +51,8 @@ public class DisplayCardsasButtonTest {
 					System.out.println(((JButton) e.getSource()).getName()+" Click"); 
 					System.out.println(Integer.parseInt(((JButton) e.getSource()).getName())+2); 
 
-					((JButton) e.getSource()).setEnabled(false);
+					//((JButton) e.getSource()).setEnabled(false);
+					
 //					for(int i=5;i>0;i--){
 //						System.out.println(i+" seconds left!");
 //						try {Thread.sleep(1000);} catch (InterruptedException er) {break;};
@@ -73,8 +80,29 @@ public class DisplayCardsasButtonTest {
 			
 		}//end for loop
 
-		
-		
+		testButton=new JButton("test");
+		testButton.setName(String.valueOf(9999)); 
+		testButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				System.out.println(((JButton) e.getSource()).getName()+" Click"); 
+				System.out.println(Integer.parseInt(((JButton) e.getSource()).getName())+2); 
+
+//				((JButton) e.getSource()).setEnabled(false);
+				
+//				for(int i=12;i>=0;i--){
+//					System.out.println(i+" time left!");
+//				
+//				}
+//				
+				for(int i=12;i>=0;i--){
+					//System.out.println(i+" time left!");
+					//try {Thread.sleep(1000);} catch (InterruptedException e2) {break;};
+					holdingCardsButton[i].setEnabled(true);
+				}
+
+			}
+		});
+		panel6.add(testButton);
 		
 		//JLabel myText1 = new JLabel("Cards you are holding are : ");
 		//panel2.add(myText1, BorderLayout.WEST);
@@ -95,25 +123,27 @@ public class DisplayCardsasButtonTest {
 		frame.pack();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		for(int i=12;i>=0;i--){
-			System.out.println(i+" seconds left!");
 		
-		}
-		for(int i=12;i>=0;i--){
-			System.out.println(i+" seconds left!");
-			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
-			holdingCardsButton[i].setEnabled(true);
-		}
-		
+//		for(int i=12;i>=0;i--){
+//			System.out.println(i+" seconds left!");
+//		
+//		}
+//		
+//		for(int i=12;i>=0;i--){
+//			System.out.println(i+" seconds left!");
+//			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
+//			holdingCardsButton[i].setEnabled(true);
+//		}
+//		
 		myText.setText("My updated text");
 		myText.paintImmediately(myText.getVisibleRect());
 		
-		for(int i=10;i>0;i--){
+		for(int i=100;i>0;i--){
 			System.out.println(i+" seconds left!");
 			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
 		}
 		
-		myText.setText("My updated text");
+		myText.setText("Program is ending after this");
 		myText.paintImmediately(myText.getVisibleRect());
 		
 	}//end mail
