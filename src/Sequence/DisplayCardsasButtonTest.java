@@ -13,8 +13,11 @@ public class DisplayCardsasButtonTest {
 	static int i=0;
 	static int[] holdingCardsValue = {41,12,33,45,589,69,7433,348,3459,15670,567811,162,173};
 	static int[] holdingButtonValue;
+	static boolean toggle;
 	
 	public static void main(String[] args) {
+		
+		JLabel myText = new JLabel("-------   Your current holdings -------",SwingConstants.CENTER);
 		
 		JFrame frame = new JFrame("Cards in your hand");
 		
@@ -22,6 +25,8 @@ public class DisplayCardsasButtonTest {
 		JPanel panel4 = new JPanel();
 		JPanel panel5 = new JPanel();
 		JPanel panel6 = new JPanel();
+		
+		panel4.add(myText);
 		//JButton[] holdingCardsButton = new JButton[13];
 		//int i;
 		//int buttonVal;
@@ -39,7 +44,7 @@ public class DisplayCardsasButtonTest {
 				public void actionPerformed(ActionEvent e){
 					System.out.println(((JButton) e.getSource()).getName()+" Click"); 
 					System.out.println(Integer.parseInt(((JButton) e.getSource()).getName())+2); 
-					//((JButton) e.getSource()).setEnabled(false);
+					((JButton) e.getSource()).setEnabled(toggle);
 				}
 			});
 			
@@ -56,6 +61,8 @@ public class DisplayCardsasButtonTest {
 			}// next 4 buttons for second panel
 			
 			i++;
+			
+
 			
 		}//end for loop
 
@@ -81,6 +88,14 @@ public class DisplayCardsasButtonTest {
 		frame.pack();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		for(int i=10;i>0;i--){
+			System.out.println(i+" seconds left!");
+			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
+		}
+		
+		myText.setText("My updated text");
+		myText.paintImmediately(myText.getVisibleRect());
 		
 	}//end mail
 }//end class

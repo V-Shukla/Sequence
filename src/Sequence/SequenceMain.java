@@ -27,12 +27,10 @@ public class SequenceMain {
 		for (int i = 1; i < 14; i++) {
 			
 			out.println("*********************"+player1+"******************");
-
 			player1Holdings=SequenceMain.PlayerInitialSetup(player1, player1Holdings);
 			//if (winner == true) {break;}
 
 			out.println("*********************"+player2+"******************");
-
 			player2Holdings=SequenceMain.PlayerInitialSetup(player2,player2Holdings);
 			//out.println("--------------------------------------------------");			 
 			//if (winner == true) {break;}
