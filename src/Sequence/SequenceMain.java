@@ -73,7 +73,10 @@ public class SequenceMain {
 
 	}// end main method
 
+	
+	//--------------------------------------------------------------------------------------------------------------
 	//player turn method to execute turn of each player
+	//--------------------------------------------------------------------------------------------------------------
 	public static List<Integer> PlayerTurn (String playerName, List<Integer> playerHoldings){
 
 		//draw and add the card to allPlayerHolding
@@ -94,6 +97,10 @@ public class SequenceMain {
 		return playerHoldings;
 	}//end PlayerTurn
 	
+
+	//--------------------------------------------------------------------------------------------------------------
+	//Initial card distribution method
+	//--------------------------------------------------------------------------------------------------------------
 	public static List<Integer> PlayerInitialSetup(String playerName, List<Integer> playerHoldings){
 
 		//draw and add the card to allPlayerHolding

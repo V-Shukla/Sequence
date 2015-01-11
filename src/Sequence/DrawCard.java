@@ -18,14 +18,20 @@ public class DrawCard {
 	static int cardThrownbyPlayer, tempDrawHold, drawCurrent,topOfDiscardPile=1000;
 	protected static List<Integer> aph,ph;
 	protected static int totalCardstoDrawFrom;
-	static boolean drawPause = true;
+	static boolean drawPause = true, throwPause = true;
 	static String pn;
-	static JButton[] holdingCardsButton=new JButton[52]; //this needs to be updated to 13 later when throwing card works
-	static JButton topOfDiscardPileButton=new JButton(),pickFromStackButton=new JButton(),drawButton=new JButton();
 	static int buttonIndex=0,bIndex=0;
+
+	//promise frame, lable, panel and buttons
 	static JFrame frame1 = new JFrame();
 	static JLabel myText = new JLabel();
+	static JButton[] holdingCardsButton=new JButton[52]; //this needs to be updated to 13 later when throwing card works
+	static JButton topOfDiscardPileButton=new JButton(),pickFromStackButton=new JButton(),drawButton=new JButton(),drawnCardButton=new JButton() ;
+	static JPanel panel = new JPanel(), panel2 = new JPanel(), panel3 = new JPanel(),panel4 = new JPanel(),panel5 = new JPanel(),panel6 = new JPanel();
 
+	//--------------------------------------------------------------------------------------------------------------
+	//Draw a new card from the deck
+	//--------------------------------------------------------------------------------------------------------------
 	public static int DrawCard(int Number, List<Integer> allPlayerHoldings, List<Integer> playerHoldings, String playerName) {
 		totalCardstoDrawFrom = Number;
 		aph= allPlayerHoldings;
@@ -58,6 +64,10 @@ public class DrawCard {
 		return drawCurrent; // returned either new draw or card thrown by the player
 	}//end draw card
 
+	
+	//--------------------------------------------------------------------------------------------------------------
+	//Create the graphics to play the game
+	//--------------------------------------------------------------------------------------------------------------
 	public static void createAndShowGUI()  {
 
 		frame1 = new JFrame(pn + " Turn");
@@ -66,24 +76,19 @@ public class DrawCard {
 		//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		//%%%%%%%%%%%%%%%%%%%%%%%%%%    DISPLAY CARDS HELD BY THE PLAYER  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		panel2 = new JPanel();
 		
-		JPanel panel2 = new JPanel();
 		//frame1.add(panel2, BorderLayout.EAST);
 		myText = new JLabel("-------   Your current holdings -------",SwingConstants.CENTER);
 		panel2.add(myText);		
 
 		//Create 3 frames for displaying cards in hand
-		JPanel panel4 = new JPanel();
-		JPanel panel5 = new JPanel();
-		JPanel panel6 = new JPanel();
-
-		//System.out.println(" Initialization complete"); 
-		//for (i=0; i<13; i++){
-
-
-
+		panel4 = new JPanel();
+		panel5 = new JPanel();
+		panel6 = new JPanel();
 		for (int cardVAlue : ph ){
 			//System.out.println(" Starting Creation of button "+cardVAlue); 
+			throwPause = true;
 			holdingCardsButton[buttonIndex]=new JButton(String.valueOf(cardVAlue));
 			holdingCardsButton[buttonIndex].setName(String.valueOf(cardVAlue)); 
 			//System.out.println(" Completed Creation of button "+cardVAlue); 
@@ -92,9 +97,9 @@ public class DrawCard {
 			//System.out.println(" Started Creation of Action listener for Button "+cardVAlue); 
 			holdingCardsButton[buttonIndex].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
-					//System.out.println(((JButton) e.getSource()).getName()+" Click"); 
 					System.out.println("You selected this card"+Integer.parseInt(((JButton) e.getSource()).getName()));
 					topOfDiscardPile = Integer.parseInt(((JButton) e.getSource()).getName());
+					throwPause = false;
 				}
 			});
 
@@ -114,39 +119,44 @@ public class DrawCard {
 
 		}//end for loop
 
-//				//-------add the button for card from discard pile
-//						JButton cardDrawn=new JButton(String.valueOf("cardDrawn "));
-//						cardDrawn.setName(String.valueOf(topOfDiscardPile)); 
-//						//System.out.println(" Completed Creation of button "+cardVAlue); 
-//						
-//						//Add action listener to drawButton
-//						//System.out.println(" Started Creation of Action listener for Button "+topOfDiscardPile); 
-//						cardDrawn.addActionListener(new ActionListener() {
-//							public void actionPerformed(ActionEvent e){
-//								//System.out.println(((JButton) e.getSource()).getName()+" Click"); 
-//								System.out.println("You selected this card"+Integer.parseInt(((JButton) e.getSource()).getName()));
-//								topOfDiscardPile = Integer.parseInt(((JButton) e.getSource()).getName());
-//							}
-//						});
-//						
-//						panel6.add(cardDrawn);
-
-
-		//holdingCardsButton[buttonIndex].setEnabled(false);
-
 		buttonIndex=0; //reinitialize buttonIndex
+		
+		//create a button to display selected card
+		throwPause = true;
+		drawnCardButton=new JButton("XX");//(String.valueOf(1111));
+		drawnCardButton.setName("9999");//(String.valueOf(1111));(String.valueOf(1111)); 
+		//Add action listener to drawnCardButton
+		//System.out.println(" Started Creation of Action listener for Button "+cardVAlue); 
+		drawnCardButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				System.out.println("You selected this card"+Integer.parseInt(((JButton) e.getSource()).getName()));
+				topOfDiscardPile = Integer.parseInt(((JButton) e.getSource()).getName());
+				throwPause = false;
+			}
+		});
+		drawnCardButton.setEnabled(false);
+		
+		//for test
+		for(int i=10;i>0;i--){
+			System.out.println(i+" seconds left!");
+			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
+		}
+		drawnCardButton.setEnabled(true);
+		
+		
+		panel6.add(drawnCardButton);
 
 		//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		//%%%%%%%%%%%%%%%%%%%%%%%%%%    END OF DISPLAY CARDS HELD BY THE PLAYER  %%%%%%%%%%%%%%%%%%%%%%%%%%%
 		//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-		JPanel panel3 = new JPanel();
+		panel3 = new JPanel();
 		//frame1.add(panel3, BorderLayout.WEST);
 		JLabel myText2 = new JLabel("------- What would you like to do?   -------",SwingConstants.CENTER);
 		panel3.add(myText2);
 
 		//frame1.setLayout(new BorderLayout() ); 
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		//frame1.add(panel);
 
 		pickFromStackButton = new JButton(" Pick "+topOfDiscardPile+" from stack ");
@@ -176,41 +186,66 @@ public class DrawCard {
 
 			public void actionPerformed(ActionEvent drawCard)
 			{
-				//Execute when button is pressed
+				//*******Execute when button is pressed*************
+				//disable draw button and pick from discard button
+				drawButton.setEnabled(false);
+				drawButton.paintImmediately(drawButton.getVisibleRect());
+				pickFromStackButton.setEnabled(false);
+				pickFromStackButton.paintImmediately(pickFromStackButton.getVisibleRect());
+
+				//draw a card
 				System.out.println(pn + " decided to draw a card !");
 				buttonDrawCard(totalCardstoDrawFrom, aph);
 				System.out.println("Hi "+pn + "! You drew "+drawCurrent+" from the deck!");
 				
+				drawnCardButton.setText(String.valueOf(drawCurrent));//update place holder with card
+				drawnCardButton.setName(String.valueOf(drawCurrent));//update place holder with card
 				
-				enableAllButtons();
+				//enable all card buttons
+				drawnCardButton.setEnabled(true);
+				drawnCardButton.paintImmediately(drawnCardButton.getVisibleRect());
 				
 				myText.setText("-------   Please throw a card!!  -------");
 				myText.paintImmediately(myText.getVisibleRect());
+
+				enableAllButtons();
 				
-				for(int i=10;i>0;i--){
-					System.out.println(i+" seconds left!");
-					try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
-				}
-				//frame1.//  paintImmediately(myText.getVisibleRect());
-				frame1.paintAll(null);
+				System.out.println("Entering throwPause!");
 				
-				for(int i=10;i>0;i--){
-					System.out.println(i+" seconds left!");
-					try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
-				}
-				myText.setText("My updated text");
+//				for(int i=10;i>0;i--){
+//					System.out.println(i+" seconds left!");
+//					try {Thread.sleep(10000);} catch (InterruptedException e) {break;};
+//				}
+				//wait for button press
+//				while(throwPause){
+//					try {Thread.sleep(500);} catch (InterruptedException e) {break;};
+//				}//end while loop
+
+				// detect which button was pressed
+				// done in the button action listener by adding it to the top of discard pile
+				
+				// update top of discard pile
+				
+				// remove it from player holding
+
+				
+
+				myText.setText("You threw this card ");
 				myText.paintImmediately(myText.getVisibleRect());
-				
+
 				System.out.println("Frame visible!");
-					
-				drawPause = false;
-				
+
+				drawPause = false;//release pause for drawing
+
+				for(int i=10;i>0;i--){
+					System.out.println(i+" seconds left!");
+					try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
+				}
+
 				frame1.dispose();
 			}
 		});     
 
-
-		
 
 		//panel for text -------   Your current holdings are   -------
 		frame1.add(panel2); 
@@ -225,18 +260,19 @@ public class DrawCard {
 
 		//selection buttons
 		frame1.getContentPane().add(panel);
-		
 		frame1.setSize(500, 200);
 		frame1.setLocationRelativeTo(null);  
 		frame1.setLayout(new GridLayout(6,1));
 		frame1.pack();
 		frame1.setVisible(true);
 
+
 		disableAllButtons ();
 
 	}//end createAndShowGUI
 
 	//this method disables all card buttons for the cards
+
 	public static void disableAllButtons (){
 
 		bIndex=0;
@@ -248,19 +284,27 @@ public class DrawCard {
 
 	}//disable buttons
 
-	//this method disables all card buttons for the cards
+	//--------------------------------------------------------------------------------------------------------------
+	//this method enables all card buttons for the cards
+	//--------------------------------------------------------------------------------------------------------------
+
 	public static void enableAllButtons (){
 
 		bIndex=0;
 		for (int cardButtons : ph ){
 			holdingCardsButton[bIndex].setEnabled(true);
+			holdingCardsButton[bIndex].paintImmediately(holdingCardsButton[bIndex].getVisibleRect());
 			bIndex++;
 		}//end for loop
 		topOfDiscardPileButton.setEnabled(true);
 
-	}//disable buttons
+	}//enable buttons
 
-	//after click of button draw a card and add it to the all player's holding
+	
+	//--------------------------------------------------------------------------------------------------------------
+	//After click of button draw a card and add it to the all player's holding
+	//--------------------------------------------------------------------------------------------------------------
+
 	public static int buttonDrawCard(int totaltoDrawFrom, List<Integer> playerHoldings) {
 		int tempHolder;
 		Random randomNumber = new Random();

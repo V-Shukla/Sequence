@@ -13,7 +13,7 @@ http://rummy.com/indianrummy.html
 	# Resolved - 2c: Extra fall back after certain draws based on the deck -12/27/2014
 					if ((cardsLeft4Drawing==0))
 					if (winner == false)
-
+# In Progress - Defect 3 : When clicking on DrawCard, card buttons are not responding
 ?????? Code for drawing on client side	?????? 
 
 #**************** Improvement ******************************

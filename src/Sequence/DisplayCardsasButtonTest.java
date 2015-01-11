@@ -44,7 +44,14 @@ public class DisplayCardsasButtonTest {
 				public void actionPerformed(ActionEvent e){
 					System.out.println(((JButton) e.getSource()).getName()+" Click"); 
 					System.out.println(Integer.parseInt(((JButton) e.getSource()).getName())+2); 
-					((JButton) e.getSource()).setEnabled(toggle);
+
+					((JButton) e.getSource()).setEnabled(false);
+//					for(int i=5;i>0;i--){
+//						System.out.println(i+" seconds left!");
+//						try {Thread.sleep(1000);} catch (InterruptedException er) {break;};
+//					}
+//					((JButton) e.getSource()).setEnabled(true);
+
 				}
 			});
 			
@@ -88,6 +95,18 @@ public class DisplayCardsasButtonTest {
 		frame.pack();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		for(int i=12;i>=0;i--){
+			System.out.println(i+" seconds left!");
+		
+		}
+		for(int i=12;i>=0;i--){
+			System.out.println(i+" seconds left!");
+			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
+			holdingCardsButton[i].setEnabled(true);
+		}
+		
+		myText.setText("My updated text");
+		myText.paintImmediately(myText.getVisibleRect());
 		
 		for(int i=10;i>0;i--){
 			System.out.println(i+" seconds left!");
