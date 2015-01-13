@@ -51,7 +51,7 @@ public class DisplayCardsasButtonTest {
 					System.out.println(((JButton) e.getSource()).getName()+" Click"); 
 					System.out.println(Integer.parseInt(((JButton) e.getSource()).getName())+2); 
 
-					//((JButton) e.getSource()).setEnabled(false);
+					((JButton) e.getSource()).setEnabled(false);
 					
 //					for(int i=5;i>0;i--){
 //						System.out.println(i+" seconds left!");
@@ -146,5 +146,5 @@ public class DisplayCardsasButtonTest {
 		myText.setText("Program is ending after this");
 		myText.paintImmediately(myText.getVisibleRect());
 		
-	}//end mail
+	}//end main
 }//end class
