@@ -17,7 +17,8 @@ import java.awt.image.BufferedImage;
 public class DrawCard {
 
 	private static int holdingNumber;
-	static int cardThrownbyPlayer, tempDrawHold, drawCurrent,topOfDiscardPile=1000;
+	static int cardThrownbyPlayer, tempDrawHold, topOfDiscardPile=1000;
+	static int[] drawCurrent=new int[2];
 	protected static List<Integer> aph,ph;
 	protected static int totalCardstoDrawFrom;
 	static boolean drawPause = true, throwPause = true;
@@ -34,7 +35,7 @@ public class DrawCard {
 	//--------------------------------------------------------------------------------------------------------------
 	//Draw a new card from the deck
 	//--------------------------------------------------------------------------------------------------------------
-	public static int DrawCard(int Number, List<Integer> allPlayerHoldings, List<Integer> playerHoldings, String playerName) {
+	public static int[] DrawCard(int Number, List<Integer> allPlayerHoldings, List<Integer> playerHoldings, String playerName) {
 		totalCardstoDrawFrom = Number;
 		aph= allPlayerHoldings;
 		ph=playerHoldings;
@@ -62,7 +63,7 @@ public class DrawCard {
 			try {Thread.sleep(500);} catch (InterruptedException e) {break;};
 		}//end while loop
 		drawPause=true;
-		System.out.println("Card drawn was "+drawCurrent+" !!!");
+		System.out.println("Card drawn was "+drawCurrent[0]+" !!!");
 		return drawCurrent; // returned either new draw or card thrown by the player
 	}//end draw card
 
@@ -99,8 +100,9 @@ public class DrawCard {
 			//System.out.println(" Started Creation of Action listener for Button "+cardVAlue); 
 			holdingCardsButton[buttonIndex].addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e){
-					System.out.println("You selected this card"+Integer.parseInt(((JButton) e.getSource()).getName()));
+					System.out.println("You selected this card "+Integer.parseInt(((JButton) e.getSource()).getName()));
 					topOfDiscardPile = Integer.parseInt(((JButton) e.getSource()).getName());
+					drawCurrent[1]=Integer.parseInt(((JButton) e.getSource()).getName());
 					executeCardButtonPress ();
 
 //					disableAllButtons ();
@@ -140,6 +142,7 @@ public class DrawCard {
 			public void actionPerformed(ActionEvent e){
 				System.out.println("You selected this card"+Integer.parseInt(((JButton) e.getSource()).getName()));
 				topOfDiscardPile = Integer.parseInt(((JButton) e.getSource()).getName());
+				drawCurrent[1]=Integer.parseInt(((JButton) e.getSource()).getName());
 				executeCardButtonPress ();
 				
 //				disableAllButtons ();
@@ -175,26 +178,44 @@ public class DrawCard {
 		panel = new JPanel();
 		//frame1.add(panel);
 
-		pickFromStackButton = new JButton(" Pick "+topOfDiscardPile+" from stack ");
+		pickFromStackButton = new JButton(" Pick "+topOfDiscardPile+" from discard pile");
 		panel.add(pickFromStackButton);
 		//Add action listener to drawButton
 		pickFromStackButton.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent discardPile)
 			{
-				//Execute when button is pressed
+				//*******Execute when button is pressed*************
+				drawButton.setEnabled(false);
+				drawButton.paintImmediately(drawButton.getVisibleRect());
+				pickFromStackButton.setEnabled(false);
+				pickFromStackButton.paintImmediately(pickFromStackButton.getVisibleRect());
+				
 				System.out.println(" Executing code for picking up last card from dicard pile !");  
-				tempDrawHold=drawCurrent;
-
-				drawCurrent=topOfDiscardPile;
+				tempDrawHold=drawCurrent[0];
+				drawCurrent[0]=topOfDiscardPile;
 				//topOfDiscardPile=cardThrownbyPlayer;
 				aph.add(topOfDiscardPile);
-				System.out.println(" "+pn + "You chose to take this Card"+drawCurrent+" !");  
+				System.out.println(" "+pn + "You chose to take this Card"+drawCurrent[0]+" !"); 
+				
+				myText.setText("-------   Please throw a card!!  -------");
+				myText.paintImmediately(myText.getVisibleRect());
+				
+				//enable all card buttons
+				drawnCardButton.setText("You Picked "+String.valueOf(drawCurrent[0]));//update place holder with card
+				drawnCardButton.setName(String.valueOf(drawCurrent[0]));//update place holder with card
+				drawnCardButton.setEnabled(true);
+				drawnCardButton.paintImmediately(drawnCardButton.getVisibleRect());
+				
+				enableAllButtons();
+				
+				
 				drawPause = false;
 				
 				frame1.dispose();
-			}
-		});     
+				
+			}//end action performed
+		});//end action listener     
 
 
 		
@@ -224,15 +245,14 @@ public class DrawCard {
 //				//draw a card
 				System.out.println(pn + " decided to draw a card !");
 				buttonDrawCard(totalCardstoDrawFrom, aph);
-				System.out.println("Hi "+pn + "! You drew "+drawCurrent+" from the deck!");
-				
-				drawnCardButton.setText("You Picked "+String.valueOf(drawCurrent));//update place holder with card
-				drawnCardButton.setName(String.valueOf(drawCurrent));//update place holder with card
+				System.out.println("Hi "+pn + "! You drew "+drawCurrent[0]+" from the deck!");
 				
 				myText.setText("-------   Please throw a card!!  -------");
 				myText.paintImmediately(myText.getVisibleRect());
 				
 //				//enable all card buttons
+				drawnCardButton.setText("You Picked "+String.valueOf(drawCurrent[0]));//update place holder with card
+				drawnCardButton.setName(String.valueOf(drawCurrent[0]));//update place holder with card
 				drawnCardButton.setEnabled(true);
 				drawnCardButton.paintImmediately(drawnCardButton.getVisibleRect());
 				
@@ -366,7 +386,7 @@ public class DrawCard {
 	//After click of button draw a card and add it to the all player's holding
 	//--------------------------------------------------------------------------------------------------------------
 
-	public static int buttonDrawCard(int totaltoDrawFrom, List<Integer> playerHoldings) {
+	public static int[] buttonDrawCard(int totaltoDrawFrom, List<Integer> playerHoldings) {
 		int tempHolder;
 		Random randomNumber = new Random();
 		boolean numberExists = false;
@@ -381,11 +401,11 @@ public class DrawCard {
 		System.out.println("topOfDiscardPile "+topOfDiscardPile);
 
 		label: do {
-			drawCurrent = randomNumber.nextInt(totaltoDrawFrom)+1;
+			drawCurrent[0] = randomNumber.nextInt(totaltoDrawFrom)+1;
 			holdingNumber = playerHoldings.size();
 			for (int i = 0; i < holdingNumber; i++) {
 				tempHolder = playerHoldings.get(i);
-				if ((drawCurrent == tempHolder) || (drawCurrent == 0)) {
+				if ((drawCurrent[0] == tempHolder) || (drawCurrent[0] == 0)) {
 					numberExists = true;
 					break;
 				}// end if for compare
@@ -401,7 +421,7 @@ public class DrawCard {
 
 		//System.out.println("playerHoldings = "+playerHoldings+"draw = "+draw);
 
-		playerHoldings.add(drawCurrent); //update all player holding
+		playerHoldings.add(drawCurrent[0]); //update all player holding
 		//playerHoldings=PlayerHolding.sortPlayerHolding(playerHoldings);
 		return drawCurrent; //update for initial distribution
 	}//end buttonDrawCard

@@ -15,7 +15,8 @@ public class SequenceMain {
 	public static List<Integer> player3Holdings = new ArrayList<Integer>();
 	public static final int totalCard = 52;
 	public static int numberOfPlayers = 2; 
-	public static int drawnCard,cardsLeft4Drawing=totalCard;
+	public static int cardsLeft4Drawing=totalCard;
+	public static int drawnCard[]=new int[2];
 	private static boolean winner=false;
 	public static List<Integer> allPlayerHoldings = new ArrayList<Integer>();
 
@@ -108,7 +109,7 @@ public class SequenceMain {
 		out.println("allPlayerHoldings" + allPlayerHoldings+"cardsLeft4Drawing"+cardsLeft4Drawing);
 
 		//add the draw to current player
-		playerHoldings = (PlayerHolding.Player_Holding(drawnCard, playerHoldings));
+		playerHoldings = (PlayerHolding.Player_Initial_Holding(drawnCard, playerHoldings));
 		out.println("playerHoldings" + playerHoldings);
 
 		winner = (CheckWinning.checkForWinner(playerHoldings));

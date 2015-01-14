@@ -7,6 +7,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -18,9 +20,15 @@ public class DisplayCardsasButtonTest {
 	static int[] holdingCardsValue = {41,12,33,45,589,69,7433,348,3459,15670,567811,162,173};
 	static int[] holdingButtonValue;
 	static boolean toggle;
+	static List<Integer> playerHoldings=new ArrayList<Integer>(); 
 	
 	public static void main(String[] args) {
-
+		
+		playerHoldings.add(42);
+		playerHoldings.add(43);
+		System.out.println(" playerHoldings "+playerHoldings);
+		playerHoldings.remove(0);
+		System.out.println(" playerHoldings "+playerHoldings);
 		
 		JLabel myText = new JLabel("-------   Your current holdings -------",SwingConstants.CENTER);
 		

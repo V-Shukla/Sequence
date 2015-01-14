@@ -30,7 +30,7 @@ Feature 6 : Add multiple players - up to 10
 Feature 7 : Test the application - create JUnits
 Feature 8 : Message for winner in a frame, message for others
 # Completed - Feature 9 : Provide initial cards - 12/30/2014
-# In Progress - Feature10 : Feature to pick last card from the discard pile 
+# Completed - Feature10 : Feature to pick last card from the discard pile - 1/13/2015
 Feature11 : Integrate with Server Client  
 Feature12 : Convert Cards to String and Integer for user Experience
 Feature13 : Accept player names from the windows
@@ -38,5 +38,6 @@ Feature14 : Make the code independent of number of players
 Feature15 : Manage Discarding a card
 # In Progress - Feature16 : Let player choose which card to discard
 Feature17 : check for winner after first distribution
-Feature18 : Accommodate Use of Jokers		
+Feature18 : Accommodate Use of Jokers	
+Feature19 : cover for winning in initial set up	
 
