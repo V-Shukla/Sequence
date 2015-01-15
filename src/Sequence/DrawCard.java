@@ -186,6 +186,7 @@ public class DrawCard {
 			public void actionPerformed(ActionEvent discardPile)
 			{
 				//*******Execute when button is pressed*************
+				System.out.println(" Executing code for picking up last card from dicard pile !");  
 				drawButton.setEnabled(false);
 				drawButton.paintImmediately(drawButton.getVisibleRect());
 				pickFromStackButton.setEnabled(false);
@@ -210,9 +211,9 @@ public class DrawCard {
 				enableAllButtons();
 				
 				
-				drawPause = false;
+				//drawPause = false;
 				
-				frame1.dispose();
+				//frame1.dispose();
 				
 			}//end action performed
 		});//end action listener     
@@ -226,23 +227,15 @@ public class DrawCard {
 
 			public void actionPerformed(ActionEvent drawCard)
 			{
-//				bIndex=0;
-//				for (int cardButtons : ph ){
-//					holdingCardsButton[bIndex].setEnabled(true);
-//					holdingCardsButton[bIndex].repaint();
-//					holdingCardsButton[bIndex].paintImmediately(holdingCardsButton[bIndex].getVisibleRect());
-//					bIndex++;
-//				}//end for loop
 				
-//				//*******Execute when button is pressed*************
-//				//disable draw button and pick from discard button
+				//*******Execute when button is pressed*************
+				//disable draw button and pick from discard button
 				drawButton.setEnabled(false);
 				drawButton.paintImmediately(drawButton.getVisibleRect());
 				pickFromStackButton.setEnabled(false);
 				pickFromStackButton.paintImmediately(pickFromStackButton.getVisibleRect());
-
 				
-//				//draw a card
+				//draw a card
 				System.out.println(pn + " decided to draw a card !");
 				buttonDrawCard(totalCardstoDrawFrom, aph);
 				System.out.println("Hi "+pn + "! You drew "+drawCurrent[0]+" from the deck!");
@@ -250,59 +243,29 @@ public class DrawCard {
 				myText.setText("-------   Please throw a card!!  -------");
 				myText.paintImmediately(myText.getVisibleRect());
 				
-//				//enable all card buttons
+				//enable all card buttons
 				drawnCardButton.setText("You Picked "+String.valueOf(drawCurrent[0]));//update place holder with card
 				drawnCardButton.setName(String.valueOf(drawCurrent[0]));//update place holder with card
 				drawnCardButton.setEnabled(true);
 				drawnCardButton.paintImmediately(drawnCardButton.getVisibleRect());
 				
 				enableAllButtons();
-				
-//	------------------------------------			bIndex=0;
-//				for (int cardButtons : ph ){
-//					holdingCardsButton[bIndex].setEnabled(true);
-//					//holdingCardsButton[bIndex].repaint();
-//					holdingCardsButton[bIndex].paintImmediately(holdingCardsButton[bIndex].getVisibleRect());
-//					bIndex++;
-//				}//end for loop
-//				topOfDiscardPileButton.setEnabled(true);
-//				//topOfDiscardPileButton.updateUI();
-//
-//				//Graphics g = drawString("Hello",100,100);
-//				//g.drawString("Hello",100,100);
-//				//frame1.paintAll(g);
-//
-//				System.out.println("Entering throwPause!");
-//				
-//				for(int i=10;i>0;i--){
-//					System.out.println(i+" seconds left!");
-//					try {Thread.sleep(10000);} catch (InterruptedException e) {break;};
-//				}
-//				//wait for button press
-//				while(throwPause){
-//					try {Thread.sleep(500);} catch (InterruptedException e) {break;};
-//				}//end while loop
-//------------------------------------
-//				// detect which button was pressed
-//				// done in the button action listener by adding it to the top of discard pile
-//				// update top of discard pile
+
+				// detect which button was pressed
 				// done in the button action listener by adding it to the top of discard pile
-//				// remove it from player holding
-//				// done in the button action listener by removing it from the player holding
+				// update top of discard pile
+				// done in the button action listener by adding it to the top of discard pile
+				// remove it from player holding
+				// done in the button action listener by removing it from the player holding
 				
-//				myText.setText("You threw this card ");
-//				myText.paintImmediately(myText.getVisibleRect());
-//
-//				System.out.println("Frame visible!");
-//
-//				drawPause = false;//release pause for drawing
-//
-//				for(int i=20;i>0;i--){
-//					System.out.println(i+" seconds left!");
-//					try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
-//				}
-//				
-//				frame1.dispose();
+				//	myText.setText("You threw this card ");
+				//	myText.paintImmediately(myText.getVisibleRect());
+				//
+				//	System.out.println("Frame visible!");
+				//
+				//	drawPause = false;//release pause for drawing
+				//	frame1.dispose();
+				
 			}//actions performed
 
 		});     
@@ -390,13 +353,6 @@ public class DrawCard {
 		int tempHolder;
 		Random randomNumber = new Random();
 		boolean numberExists = false;
-
-		//		if (playerHoldings.size()>1){
-		//		//topOfDiscardPile=500; //cardThrownbyPlayer;//playerHoldings.get(playerHoldings.size()-1);
-		//		topOfDiscardPile++;
-		//		}else{
-		//			//topOfDiscardPile=1000;
-		//		}
 
 		System.out.println("topOfDiscardPile "+topOfDiscardPile);
 
