@@ -27,7 +27,7 @@ Defect 6 : cardsLeft4Drawing decreases when picked from discard pile
 # Completed - Feature10 : Feature to pick last card from the discard pile - 1/13/2015
 # Completed - Feature15 : Manage Discarding a card - 1/14/2015
 # Completed - Feature16 : Let player choose which card to discard - 1/14/2015
-# Completed - Feature 8 : Message for winner in a frame, message for others - 1/15/2015
+# Completed - Feature 8 : Message for winner in a frame - 1/15/2015
 
 In Progress - Feature13 : Accept player names from the windows
 
@@ -53,4 +53,6 @@ Feature11 : Integrate with Server Client
 
 Feature18 : Accommodate Use of Jokers	
 
-Feature21 : 
+Feature21 : Message for non winners
+
+Feature22 :
