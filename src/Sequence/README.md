@@ -17,6 +17,7 @@ http://rummy.com/indianrummy.html
 ?????? Code for drawing on client side	?????? 
 Defect 4 : 14 cards for player 1
 Defect 5 : Player 2 Pick button small
+Defect 6 : cardsLeft4Drawing decreases when picked from discard pile
 
 #**************** Improvement ******************************
 # Completed - Feature 1 : add window to middle -12/22/2014
@@ -26,8 +27,9 @@ Defect 5 : Player 2 Pick button small
 # Completed - Feature10 : Feature to pick last card from the discard pile - 1/13/2015
 # Completed - Feature15 : Manage Discarding a card - 1/14/2015
 # Completed - Feature16 : Let player choose which card to discard - 1/14/2015
+# Completed - Feature 8 : Message for winner in a frame, message for others - 1/15/2015
 
-Feature 8 : Message for winner in a frame, message for others
+In Progress - Feature13 : Accept player names from the windows
 
 Feature 2 : add playerHoldings and refresh window for updates
 
@@ -35,10 +37,11 @@ Feature 3 : Update the CheckWinning to defect winner for multiple sequence
 	   3a : Check for valid sequences for all cards in hand
 	   3b : Check for 3/4 cards of the same number
 	   3c : Manage multiple decks
+	   
 Feature 7 : Test the application - create JUnits
 
 Feature12 : Convert Cards to String and Integer for user Experience
-Feature13 : Accept player names from the windows
+
 Feature17 : check for winner after first distribution
 Feature19 : cover for winning in initial set up	
 
@@ -49,3 +52,5 @@ Feature20 : Need to handle multiple Deck
 Feature11 : Integrate with Server Client  
 
 Feature18 : Accommodate Use of Jokers	
+
+Feature21 : 

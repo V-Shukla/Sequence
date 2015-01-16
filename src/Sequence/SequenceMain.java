@@ -1,6 +1,12 @@
 package Sequence;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 import static java.lang.System.out;
 
@@ -21,8 +27,14 @@ public class SequenceMain {
 	public static List<Integer> allPlayerHoldings = new ArrayList<Integer>();
 
 	public static void main(String[] args) {
-		String player1 = "Player 1";
-		String player2 = "Player 2";
+		
+		Scanner playerScan1 = new Scanner(System.in);
+		Scanner playerScan2 = new Scanner(System.in);
+		out.print("Enter 1st player's name : ");
+		String player1 = playerScan1.nextLine();
+		out.print("Enter 2nd player's name : ");
+		String player2 = playerScan2.nextLine();
+		
 		int finalIteration = totalCard/numberOfPlayers;
 		//use for setting up initial cards
 		for (int i = 1; i < 14; i++) {
@@ -91,6 +103,7 @@ public class SequenceMain {
 
 		winner = (CheckWinning.checkForWinner(playerHoldings));
 		if (winner == true) {
+			WinnerDisplay (playerName);
 			out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			out.println("!!!!!!!!!!!!!!!!!!! "+playerName+" wins!!!!!!!!!!!!!!!!!!!!!!!!!");
 			out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
@@ -114,11 +127,37 @@ public class SequenceMain {
 
 		winner = (CheckWinning.checkForWinner(playerHoldings));
 		if (winner == true) {
+			WinnerDisplay (playerName);
 			out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 			out.println("!!!!!!!!!!!!!!!!!!! "+playerName+" wins!!!!!!!!!!!!!!!!!!!!!!!!!");
 			out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 		}
 		return playerHoldings;
 	}//end PlayerTurn
+	
+		//--------------------------------------------------------------------------------------------------------------
+		//Winner Display method
+		//--------------------------------------------------------------------------------------------------------------
+		public static void WinnerDisplay (String playerName){
+			
+			JFrame winnerFrame = new JFrame(" We have a winner!!");
+			winnerFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			
+			JLabel playerWins = new JLabel(playerName+" has won!!",SwingConstants.CENTER);
+			JLabel gameEnds = new JLabel("Game ends here!!",SwingConstants.CENTER);
+			JLabel playAnotherone = new JLabel("Try playing another one!!",SwingConstants.CENTER);
+			
+			winnerFrame.add(playerWins);
+			winnerFrame.add(gameEnds);
+			winnerFrame.add(playAnotherone);
+
+			//winnerFrame.getContentPane().add(panel);
+			winnerFrame.setSize(500, 200);
+			winnerFrame.setLocationRelativeTo(null);  
+			winnerFrame.setLayout(new GridLayout(3,1));
+			//winnerFrame.pack();
+			winnerFrame.setVisible(true);
+			
+		}//end Winner Display
 	
 }// end class
