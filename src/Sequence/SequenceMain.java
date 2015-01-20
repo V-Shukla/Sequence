@@ -6,7 +6,9 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 
 import static java.lang.System.out;
 
@@ -23,26 +25,82 @@ public class SequenceMain {
 	public static int numberOfPlayers = 2; 
 	public static int cardsLeft4Drawing=totalCard;
 	public static int drawnCard[]=new int[2];
-	private static boolean winner=false;
+	private static boolean winner=false,acceptName=false;
 	public static List<Integer> allPlayerHoldings = new ArrayList<Integer>();
+	public static String player1 = null, player2 = null;
 
 	public static void main(String[] args) {
 		
-		Scanner playerScan1 = new Scanner(System.in);
-		Scanner playerScan2 = new Scanner(System.in);
-		out.print("Enter 1st player's name : ");
-		String player1 = playerScan1.nextLine();
-		out.print("Enter 2nd player's name : ");
-		String player2 = playerScan2.nextLine();
+//		Scanner playerScan1 = new Scanner(System.in);
+//		Scanner playerScan2 = new Scanner(System.in);
+//		out.print("Enter 1st player's name : ");
+//		String player1 = playerScan1.nextLine();
+//		out.print("Enter 2nd player's name : ");
+//		String player2 = playerScan2.nextLine();
+		
+		acceptName = true;
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				player1 = JOptionPane.showInputDialog(null, "Enter User Name for Player1");
+				acceptName = false;
+			}
+		});
+
+		int wait1 = 1;
+//		acceptName = false;
+		while (true){
+			if (wait1%10==0){out.println("Waiting for username entry .... ");} 
+			if (wait1%20==0){
+				out.println("Player did not enter name .... ");
+				wait1=1;JOptionPane.getRootFrame().dispose(); 
+				break;} 
+			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
+			wait1++;
+		}//end while loop
+		
+		acceptName = true;
+		out.println("starting second player!");
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				player2 = JOptionPane.showInputDialog(null, "Enter User Name for Player2");
+				acceptName = false;
+			}
+		});
+
+		wait1 = 1;acceptName = true;
+		while (true){
+			//out.println("starting while loop!");
+			if (wait1%10==0){out.println("Waiting for username entry .... ");} 
+			if (wait1%20==0){
+				out.println("Player did not enter name .... ");
+				wait1=1;JOptionPane.getRootFrame().dispose(); 
+				break;} 
+			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
+			wait1++;
+			//out.println("one loop complete! "+wait1);
+		}//end while loop
+		
+		
+//		if (player1==null) player1="player1";
+//		if (player2==null) player2="player2";
+//		player1="player1";
+		player2="player2";
+		
+		out.println("player1 "+player1);
+		out.println("player2 "+player2);
 		
 		int finalIteration = totalCard/numberOfPlayers;
 		//use for setting up initial cards
 		for (int i = 1; i < 14; i++) {
+			out.println("inside for loop "+player2);
 			
 			out.println("*********************"+player1+"******************");
 			player1Holdings=SequenceMain.PlayerInitialSetup(player1, player1Holdings);
 			//if (winner == true) {break;}
-
+			
+			out.println("inside for loop after player2 "+player2);
 			out.println("*********************"+player2+"******************");
 			player2Holdings=SequenceMain.PlayerInitialSetup(player2,player2Holdings);
 			//out.println("--------------------------------------------------");			 
@@ -120,7 +178,7 @@ public class SequenceMain {
 		drawnCard = DrawCard.buttonDrawCard(totalCard, allPlayerHoldings); 
 		cardsLeft4Drawing--;
 		out.println("allPlayerHoldings" + allPlayerHoldings+"cardsLeft4Drawing"+cardsLeft4Drawing);
-
+		
 		//add the draw to current player
 		playerHoldings = (PlayerHolding.Player_Initial_Holding(drawnCard, playerHoldings));
 		out.println("playerHoldings" + playerHoldings);
