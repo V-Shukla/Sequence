@@ -18,6 +18,7 @@ http://rummy.com/indianrummy.html
 Defect 4 : 14 cards for player 1
 Defect 5 : Player 2 Pick button small
 Defect 6 : cardsLeft4Drawing decreases when picked from discard pile
+Defect 7 : if players wait for entering name, it times out then player 2 is null after initial set up of player1
 
 #**************** Improvement ******************************
 # Completed - Feature 1 : add window to middle -12/22/2014
@@ -44,6 +45,7 @@ Feature12 : Convert Cards to String and Integer for user Experience
 
 Feature17 : check for winner after first distribution
 Feature19 : cover for winning in initial set up	
+			change CheckWinning to return string
 
 Feature 6 : Add multiple players - up to 10
 Feature14 : Make the code independent of number of players
