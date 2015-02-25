@@ -1,5 +1,5 @@
 package Sequence;
-import static java.lang.System.out;
+//import static java.lang.System.out;
 
 import java.util.List;
 

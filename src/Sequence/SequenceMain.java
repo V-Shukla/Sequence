@@ -30,63 +30,17 @@ public class SequenceMain {
 	public static String player1 = null, player2 = null, player3 = "player3 ";
 
 	public static void main(String[] args) {
+
+
+		String playerOne = getPlayerName.PlayerName("player1");
+		final String player1 = playerOne;
+//		while (player1 == null) {}
 		
-		Scanner playerScan1 = new Scanner(System.in);
-		Scanner playerScan2 = new Scanner(System.in);
-		out.print("Enter 1st player's name : ");
-		String player1 = playerScan1.nextLine();
-		out.print("Enter 2nd player's name : ");
-		String player2 = playerScan2.nextLine();
+		String playerTwo = getPlayerName.PlayerName("player2");
+//		while (playerTwo == null) {}
+		final String player2 = playerTwo;
 		
-//		acceptName = true;
-//		SwingUtilities.invokeLater(new Runnable() {
-//			@Override
-//			public void run() {
-//				player1 = JOptionPane.showInputDialog(null, "Enter User Name for Player1");
-//				acceptName = false;
-//			}
-//		});
-//
-//		int wait1 = 1;
-////		acceptName = false;
-//		while (true){
-//			if (wait1%10==0){out.println("Waiting for username entry .... ");} 
-//			if (wait1%2==0){
-//				out.println("Player did not enter name .... ");
-//				wait1=1;JOptionPane.getRootFrame().dispose(); 
-//				break;} 
-//			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
-//			wait1++;
-//		}//end while loop
-//		
-//		acceptName = true;
-//		out.println("starting second player!");
-//		SwingUtilities.invokeLater(new Runnable() {
-//			@Override
-//			public void run() {
-//				player2 = JOptionPane.showInputDialog(null, "Enter User Name for Player2");
-//				acceptName = false;
-//			}
-//		});
-//
-//		wait1 = 1;acceptName = true;
-//		while (true){
-//			//out.println("starting while loop!");
-//			if (wait1%10==0){out.println("Waiting for username entry .... ");} 
-//			if (wait1%2==0){
-//				out.println("Player did not enter name .... ");
-//				wait1=1;JOptionPane.getRootFrame().dispose(); 
-//				break;} 
-//			try {Thread.sleep(1000);} catch (InterruptedException e) {break;};
-//			wait1++;
-//			//out.println("one loop complete! "+wait1);
-//		}//end while loop
-//		
-//		
-//		if (player1==null) player1="player1";
-//		if (player2==null) player2="player2";
-//		player1="player1";
-//		player2="player2";
+
 		
 		out.println("player1 "+player1);
 		out.println("player2 "+player2);

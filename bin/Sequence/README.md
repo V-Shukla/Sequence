@@ -29,8 +29,7 @@ Defect 7 : if players wait for entering name, it times out then player 2 is null
 # Completed - Feature15 : Manage Discarding a card - 1/14/2015
 # Completed - Feature16 : Let player choose which card to discard - 1/14/2015
 # Completed - Feature 8 : Message for winner in a frame - 1/15/2015
-
-In Progress - Feature13 : Accept player names from the windows
+# Completed - Feature13 : Accept player names from the GUI windows - 2/24/2015
 
 Feature 2 : add playerHoldings and refresh window for updates
 
