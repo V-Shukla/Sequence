@@ -30,6 +30,7 @@ public class getPlayerName {
 					JOptionPane.showMessageDialog(null, "You have not chosen any name. System allocated "+name+" as your name");
 				}
 				else if (playerName.length()==0){ //check if no text was entered and user pressed OK
+					playerName = name;
 					JOptionPane.showMessageDialog(null, "You left the name field blank. System allocated "+name+" as your name");
 				}else{
 					JOptionPane.showMessageDialog(null, "You have chosen "+playerName +" as your name. That is a nice name!");

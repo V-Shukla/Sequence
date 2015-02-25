@@ -32,11 +32,11 @@ public class SequenceMain {
 	public static void main(String[] args) {
 
 
-		String playerOne = getPlayerName.PlayerName("player1");
+		String playerOne = getPlayerName.PlayerName("Player1");
 		final String player1 = playerOne;
 //		while (player1 == null) {}
 		
-		String playerTwo = getPlayerName.PlayerName("player2");
+		String playerTwo = getPlayerName.PlayerName("Player2");
 //		while (playerTwo == null) {}
 		final String player2 = playerTwo;
 		

@@ -14,11 +14,13 @@ http://rummy.com/indianrummy.html
 					if ((cardsLeft4Drawing==0))
 					if (winner == false)
 # Resolved - Defect 3 : When clicking on DrawCard, card buttons are not responding, paintAll keeps throwing null pointer exception - 01/12/2015
+# Resolved - Defect 7 : if players wait for entering name, it times out then player 2 is null after initial set up of player1 - 02/24/2015
+
 ?????? Code for drawing on client side	?????? 
 Defect 4 : 14 cards for player 1
 Defect 5 : Player 2 Pick button small
 Defect 6 : cardsLeft4Drawing decreases when picked from discard pile
-Defect 7 : if players wait for entering name, it times out then player 2 is null after initial set up of player1
+
 
 #**************** Improvement ******************************
 # Completed - Feature 1 : add window to middle -12/22/2014
