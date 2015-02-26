@@ -8,33 +8,41 @@ import javax.swing.JOptionPane;
  * @author vihar
  * This class implements methods to get player name from the window
  */
-public class getPlayerName {
-			static String playerName=null;
+public class GetPlayerName {
+			
+
 			//--------------------------------------------------------------------------------------------------------------
 			//Get player name from window method
 			//--------------------------------------------------------------------------------------------------------------
+	static String playerName=null;
+	
+	
 			public static String PlayerName (String name){
-				
-				
-//				Scanner playerScan1 = new Scanner(System.in);
-//				Scanner playerScan2 = new Scanner(System.in);
-//				out.print("Enter 1st player's name : ");
-//				String player1 = playerScan1.nextLine();
 
-//				out.print("Enter 2nd player's name : ");
-//				String player2 = playerScan2.nextLine();
 				
 				playerName = JOptionPane.showInputDialog(name+" Choose your name :");
 				if (playerName==null){//check if no user pressed cancel
 					playerName = name;
-					JOptionPane.showMessageDialog(null, "You have not chosen any name. System allocated "+name+" as your name");
+					JOptionPane.showMessageDialog(null, "You have not chosen any name. System allocated "+name+" as your name.");
 				}
 				else if (playerName.length()==0){ //check if no text was entered and user pressed OK
 					playerName = name;
-					JOptionPane.showMessageDialog(null, "You left the name field blank. System allocated "+name+" as your name");
+					JOptionPane.showMessageDialog(null, "You left the name field blank. System allocated "+name+" as your name.");
 				}else{
 					JOptionPane.showMessageDialog(null, "You have chosen "+playerName +" as your name. That is a nice name!");
 				}//end if
+				
+//				--------------------------------------------------------------------------------------------------------------
+//				Get player name from console method 
+//				--------------------------------------------------------------------------------------------------------------	
+//						Scanner playerScan1 = new Scanner(System.in);
+//						Scanner playerScan2 = new Scanner(System.in);
+//						out.print("Enter 1st player's name : ");
+//						String player1 = playerScan1.nextLine();
+
+//						out.print("Enter 2nd player's name : ");
+//						String player2 = playerScan2.nextLine();
+				
 				
 				return playerName;
 				

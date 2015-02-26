@@ -6,9 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Example extends JFrame {
+public class ZZExample extends JFrame {
 
-	public Example() {initUI();}
+	public ZZExample() {initUI();}
 	public final void initUI() {
 		JPanel panel = new JPanel();
 		getContentPane().add(panel);
@@ -35,7 +35,7 @@ public class Example extends JFrame {
 	//    }
 	//   
 	public static void main(String[] args) {
-		Example ex = new Example();
+		ZZExample ex = new ZZExample();
 		ex.setVisible(true);
 	}
 }

@@ -16,7 +16,7 @@ import java.util.Scanner;
 import javax.swing.*;
 
 
-public class DisplayCardsasButtonTest {
+public class ZZDisplayCardsasButtonTest {
 	static JButton[] holdingCardsButton=new JButton[13];
 	static JButton testButton=new JButton();
 	static int i=0;

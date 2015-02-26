@@ -32,17 +32,15 @@ Defect 6 : cardsLeft4Drawing decreases when picked from discard pile
 # Completed - Feature16 : Let player choose which card to discard - 1/14/2015
 # Completed - Feature 8 : Message for winner in a frame - 1/15/2015
 # Completed - Feature13 : Accept player names from the GUI windows - 2/24/2015
+# Completed - Feature12 : Create a class to convert Card Numbers to String and Integer for user Experience - 2/25/2015
 
 Feature 2 : add playerHoldings and refresh window for updates
 
 Feature 3 : Update the CheckWinning to defect winner for multiple sequence
 	   3a : Check for valid sequences for all cards in hand
 	   3b : Check for 3/4 cards of the same number
-	   3c : Manage multiple decks
 	   
 Feature 7 : Test the application - create JUnits
-
-Feature12 : Convert Cards to String and Integer for user Experience
 
 Feature17 : check for winner after first distribution
 Feature19 : cover for winning in initial set up	
@@ -50,7 +48,7 @@ Feature19 : cover for winning in initial set up
 
 Feature 6 : Add multiple players - up to 10
 Feature14 : Make the code independent of number of players
-Feature20 : Need to handle multiple Deck
+Feature20 : Need to handle multiple Deck for distribution
 
 Feature11 : Integrate with Server Client  
 
@@ -58,4 +56,12 @@ Feature18 : Accommodate Use of Jokers
 
 Feature21 : Message for non winners
 
-Feature22 :
+Feature22 : Manage multiple decks in winning checks
+
+Feature23 : Manage each player in its own thread
+
+Feature24 : Add String names of the cards to buttons
+
+Feature25 : Sort Cards by suites
+
+Feature26 : Reserved for future features

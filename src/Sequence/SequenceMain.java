@@ -29,17 +29,23 @@ public class SequenceMain {
 	public static List<Integer> allPlayerHoldings = new ArrayList<Integer>();
 	public static String player1 = null, player2 = null, player3 = "player3 ";
 
+	
+	
 	public static void main(String[] args) {
 
+//		String playerOne = GetPlayerName.PlayerName("Player1");
+//		final String player1 = playerOne;
+		MapDeckToString deck = new MapDeckToString();
+	      for (int i=0; i<=deck.maxCardinDeck; i++){System.out.println("i is = " +i+" hashvalue of i = "+deck.StringReturnFromIntCard (i));}//end for loop
 
-		String playerOne = getPlayerName.PlayerName("Player1");
-		final String player1 = playerOne;
+		
+		final String player1 = GetPlayerName.PlayerName("Player1");
 //		while (player1 == null) {}
 		
-		String playerTwo = getPlayerName.PlayerName("Player2");
-//		while (playerTwo == null) {}
-		final String player2 = playerTwo;
-		
+//		String playerTwo = GetPlayerName.PlayerName("Player2");
+////		while (playerTwo == null) {}
+//		final String player2 = playerTwo;
+		final String player2 = GetPlayerName.PlayerName("Player2");
 
 		
 		out.println("player1 "+player1);

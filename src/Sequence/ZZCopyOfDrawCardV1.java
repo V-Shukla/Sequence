@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //this class will hold draw method which randomly draws a number from 1-52
-public class CopyOfDrawCardV1 {
+public class ZZCopyOfDrawCardV1 {
 
 	private static int holdingNumber;
 	static int cardThrownbyPlayer, tempDrawHold, drawCurrent,topOfDiscardPile=500;
