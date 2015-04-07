@@ -40,7 +40,8 @@ public class DrawCard {
 		aph= allPlayerHoldings;
 		ph=playerHoldings;
 		pn=playerName;
-
+		MapDeckToString deck = new MapDeckToString();
+		
 		//Figure out the top card on the discard pile
 		if (allPlayerHoldings.size()>1){
 			//topOfDiscardPile=500; //cardThrownbyPlayer;//playerHoldings.get(playerHoldings.size()-1);
@@ -92,6 +93,8 @@ public class DrawCard {
 		for (int cardVAlue : ph ){
 			//System.out.println(" Starting Creation of button "+cardVAlue); 
 			throwPause = true;
+//			String cardName = MapDeckToString.StringReturnFromIntCard(cardVAlue);
+//			System.out.println("cardVAlue "+cardVAlue+"cardName "+cardName);
 			holdingCardsButton[buttonIndex]=new JButton(String.valueOf(cardVAlue));
 			holdingCardsButton[buttonIndex].setName(String.valueOf(cardVAlue)); 
 			//System.out.println(" Completed Creation of button "+cardVAlue); 

@@ -35,8 +35,8 @@ public class SequenceMain {
 
 //		String playerOne = GetPlayerName.PlayerName("Player1");
 //		final String player1 = playerOne;
-		MapDeckToString deck = new MapDeckToString();
-	      for (int i=0; i<=deck.maxCardinDeck; i++){System.out.println("i is = " +i+" hashvalue of i = "+deck.StringReturnFromIntCard (i));}//end for loop
+//		MapDeckToString deck = new MapDeckToString();
+//	      for (int i=0; i<=deck.maxCardinDeck; i++){System.out.println("i is = " +i+" hashvalue of i = "+deck.StringReturnFromIntCard (i));}//end for loop
 
 		
 		final String player1 = GetPlayerName.PlayerName("Player1");

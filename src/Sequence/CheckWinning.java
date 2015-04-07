@@ -17,7 +17,7 @@ public class CheckWinning {
 
 				if ((playerHoldings.get(i)+1)==playerHoldings.get(i+1)){//sequence forms add 1 to sequenceCount
 					sequenceCount++;
-					if (sequenceCount>=3){
+					if (sequenceCount>=10){
 						didPlayerWin = true;
 						break;
 					}//if sequence if more then 4 then player wins
