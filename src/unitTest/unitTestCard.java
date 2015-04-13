@@ -75,7 +75,7 @@ public class unitTestCard
 		assertEquals(0, card.getCardValue());
 		assertEquals(0, card.getCardSequenceNumber());
 		assertEquals(0, card.getDeckNumber());
-		System.out.println("~~~~~~~~ Failed test case ~~~~~~~~~~~~~~");
+		System.out.println("~~~~~~~~ Negative test case ~~~~~~~~~~~~~~");
 		System.out.println(card);
 		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}

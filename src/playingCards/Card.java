@@ -13,15 +13,14 @@ public class Card {
 	
 	//Static method to create object only if it meets the standards
 	
-	
-	public static boolean validateArguments(String suite, String cardName, int cardValue, int cardSequenceNumber, int deckNumber)
+	private static boolean validateArguments(String suite, String cardName, int cardValue, int cardSequenceNumber, int deckNumber)
 	{
 		
 		boolean suiteValidation = false;
-		boolean cardNameValidate =false;
-		boolean cardValueValidate =false;
-		boolean cardSequenceNumberValidate =false;
-		boolean deckNumberValidate =false;
+		boolean cardNameValidate = false;
+		boolean cardValueValidate = false;
+		boolean cardSequenceNumberValidate = false;
+		boolean deckNumberValidate = false;
 		
 		//validate suite input
 		suiteValidation = false;
@@ -38,8 +37,8 @@ public class Card {
 		cardNameValidate =false;
 		switch (cardName)
         {
-		case "Ace": case "1": case "2": case "3":case "4":case "5":case "6":
-		case "7": case "8": case "9": case "10": case "Jack": case "Queen": case "King":
+		case "Ace": case "2": case "3":case "4":case "5":case "6": case "7": case "8": 
+		case "9": case "10": case "Jack": case "Queen": case "King": case "Joker": 
 			cardNameValidate = true;
 			break;
 		default:cardNameValidate = false;
