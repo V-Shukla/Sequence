@@ -25,7 +25,7 @@ public class Card {
 		//validate suite input
 		suiteValidation = false;
 		switch (suite) {
-		case "Spades":case "Clubs":case "Hearts":case "Diamonds": suiteValidation = true;
+		case "Spades":case "Clubs":case "Hearts":case "Diamonds": case "Joker": suiteValidation = true;
 			break;
 		default:suiteValidation = false;
 				System.out.println("You entered wrong suite name! Suite name has not been set.");
