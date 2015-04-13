@@ -27,13 +27,13 @@ public class Deck
 //	    Card card[] = new Card[numberOfDeck*cardsInDeck];
 	    ArrayList<Card> card = new ArrayList<Card>(numberOfDeck*cardsInDeck);
 	    
-	    for (int k = 0; k < numberOfDeck; k++)
+	    for (int i = 0; i < numberOfDeck; i++)
         {
-		    for (int i = 0; i < suite.length; i++)
+		    for (int j = 0; j < suite.length; j++)
 	        {
-		    	for (int j = 0; j < cardName.length; j++)
+		    	for (int k = 0; k < cardName.length; k++)
 			    {
-			    	card.add(new Card(suite[i], cardName[j], cardValue[j], ++cardSequenceNumber , ++k));
+			    	card.add(new Card(suite[j], cardName[k], cardValue[k], ++cardSequenceNumber , ++i));
 			    }//loop to create 13 cards
 		        
 	        }//loop to create 4 suites
