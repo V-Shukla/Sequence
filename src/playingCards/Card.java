@@ -49,8 +49,8 @@ public class Card {
 		
 		//validate cardValue input
 		cardValueValidate =false;
-		if(cardValue > 0 && cardValue<14) cardValueValidate = true;
-		else {cardValueValidate = false;System.out.println("You entered wrong Card Value! Card value must be inbetween 1 to 13");}
+		if(cardValue >= 0 && cardValue<14) cardValueValidate = true;
+		else {cardValueValidate = false;System.out.println("You entered wrong Card Value! Card value must be inbetween 0 to 13");}
 		
 		//validate cardSequenceNumber input
 		cardSequenceNumberValidate =false;
