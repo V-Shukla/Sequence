@@ -30,15 +30,19 @@ public class unitTestDeck<completedTestDeck>
 	@Test public void test3CardValueValidation()
 	{	
 		for (int i = 0; i < completedTestDeck.size(); i++)
-        {
-			assertEquals(true, testCardValueValidation(completedTestDeck.get(i).getCardValue()));}
+        {assertEquals(true, testCardValueValidation(completedTestDeck.get(i).getCardValue()));}
 	}
 	
 	@Test public void test4CardSequenceNumber()
 	{	
 		for (int i = 0; i < completedTestDeck.size(); i++)
-        {System.out.println(i+" "+completedTestDeck.get(i).getCardSequenceNumber()+" "+completedTestDeck.size());
-			assertEquals(true, testCardSequenceNumber(completedTestDeck.get(i).getCardSequenceNumber()));}
+        {assertEquals(true, testCardSequenceNumber(completedTestDeck.get(i).getCardSequenceNumber()));}
+	}
+	@Test public void test5DeckNumber()
+	{	
+		for (int i = 0; i < numOfDeckTested; i++)
+        {System.out.println(i+" "+completedTestDeck.get(i).getDeckNumber());
+		assertEquals(true, testDeckNumber(completedTestDeck.get(i).getDeckNumber()));}
 	}
 
 
@@ -70,7 +74,13 @@ public class unitTestDeck<completedTestDeck>
 	
 	public boolean testCardSequenceNumber (int cardSequenceNumber) 
 	{ 
-		if ((cardSequenceNumber>0) & (cardSequenceNumber < (cardsInDeck*numOfDeckTested))) return true; 
+		if ((cardSequenceNumber>0) & (cardSequenceNumber <= (cardsInDeck*numOfDeckTested))) return true; 
+		return false;
+	}
+	
+	public boolean testDeckNumber (int deckNumber) 
+	{ 
+		if ((deckNumber>0) & (deckNumber <= (numOfDeckTested))) return true; 
 		return false;
 	}
 

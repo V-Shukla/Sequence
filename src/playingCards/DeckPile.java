@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class DeckPile
 {
-	private static int cardSequenceNumber = 0;
+	private int cardSequenceNumber = 0;
 	private static int cardsInDeck = 54;
 
 	public static int getCardsInDeck()
@@ -32,7 +32,6 @@ public class DeckPile
 
 	private ArrayList<Card> createClosedCardPile(int numberOfDeck)
 	{
-
 		String [] suite = {"Spades","Clubs","Hearts","Diamonds"};
 		String [] cardName = {"Ace","2","3","4","5","6","7","8","9","10","Jack","Queen","King"};
 		int [] cardValue = {10,2,3,4,5,6,7,8,9,10,10,10,10}; 
@@ -48,7 +47,7 @@ public class DeckPile
 			{
 				for (int k = 0; k < cardName.length; k++)
 				{
-					deck.add(new Card(suite[j], cardName[k], cardValue[k], ++cardSequenceNumber , deckNumber));
+					deck.add(new Card(suite[j], cardName[k], cardValue[k], ++cardSequenceNumber , ++i));
 //					System.out.println("Card Created "+suite[j]+" "+ cardName[k]+" "+ cardValue[k]+" "+ cardSequenceNumber +" "+ deckNumber);
 
 				}//loop to create 13 cards
